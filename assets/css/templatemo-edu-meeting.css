@@ -900,13 +900,13 @@ section.upcoming-meetings .categories ul li a:hover {
   color: #a12c2f;
 }
 
-section.upcoming-meetings .categories .main-button-red {
+section.upcoming-meetings .categories .Category {
   border-top: 1px solid #eee;
   padding-top: 30px;
   margin-top: 15px;
 }
 
-section.upcoming-meetings .categories .main-button-red a {
+section.upcoming-meetings .categories .Category a {
   width: 100%;
   text-align: center;
 }
