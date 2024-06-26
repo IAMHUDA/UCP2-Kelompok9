@@ -1222,7 +1222,7 @@ our facts
 */
 
 section.our-facts {
-  background-image: url(../images/facts-bg.jpg);
+  background-image: url(../images/softwareojan3.jpg);
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -1272,7 +1272,7 @@ section.our-facts h2 {
 section.our-facts .video {
   text-align: center;
   margin-left: 70px;
-  background-image: url(../images/video-item-bg.jpg);
+  background-image: url(../images/softwareojan2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
