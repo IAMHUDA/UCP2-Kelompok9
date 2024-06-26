@@ -912,7 +912,7 @@ section.upcoming-meetings .categories .Category a {
 }
 
 .meeting-item {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .meeting-item .thumb {
@@ -1648,12 +1648,12 @@ section.meetings-page .pagination ul li a:hover {
 
 /* Meeting item column */
 .templatemo-item-col {
-	width: 31%;
+	width: 40%;
 }
 
 @media (max-width: 992px) {
 	.templatemo-item-col {
-		width: 45%;
+		width: 60%;
 	}
 }
 
