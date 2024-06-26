@@ -7,7 +7,61 @@
     <link rel="stylesheet"href ="../assets/css/contact.css"
 </head>
 <body>
-    <h1>contact</h1>
-    <h2>Halo</h2>
+    <div class="container">
+        <h2>Form Pendaftaran Software House</h2>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <label for="phone">No Telpon:</label>
+        <input type="tel" id="phone" required>
+        
+        <label for="address">Alamat:</label>
+        <input type="text" id="address" required>
+        
+        <label>Gender:</label>
+        <div class="gender-options">
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female" required> Female</label>
+        </div>
+        
+        <label>Opsi Pendaftaran:</label>
+        <div class="membership-options">
+            <label><input type="radio" name="membership" value="VIP" required> VIP</label>
+            <label><input type="radio" name="membership" value="Biasa" required> Biasa</label>
+        </div>
+        
+        <label for="photo">Foto:</label>
+        <input type="file" id="photo" required>
+        
+        <button type="button" onclick="submitForm()">Daftar</button>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" class="search-box" id="search" placeholder="Search for names..">
+    </div>
+    
+    <div class="table-container">
+        <h3>Berikut list</h3>
+        <table id="registrationTable">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>No Telpon</th>
+                    <th>Alamat</th>
+                    <th>Gender</th>
+                    <th>Opsi Pendaftaran</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody id="registrationData">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    
 </body>          
 </html>                     
