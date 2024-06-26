@@ -1,14 +1,18 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    loadTableData();
-});
+ // Your web app's Firebase configuration
+ const firebaseConfig = {
+    apiKey: "AIzaSyCW4lK4Kbs8hgHyUubGfajywlXrYm2NBaM",
+    authDomain: "hudadatabase-6277d.firebaseapp.com",
+    projectId: "hudadatabase-6277d",
+    storageBucket: "hudadatabase-6277d.appspot.com",
+    messagingSenderId: "422933041959",
+    appId: "1:422933041959:web:66d26fd7f97563d189cf02",
+    measurementId: "G-YWG0WRG3EH"
+};
 
-document.getElementById('search').addEventListener('keyup', function(event) {
-    if (event.key === 'Enter') {
-        searchTable();
-    } else if (event.target.value === '') {
-        loadTableData();
-    }
-});
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
 
 function submitForm() {
     const name = document.getElementById('name').value;
@@ -27,7 +31,8 @@ function submitForm() {
     const reader = new FileReader();
     reader.onload = function(e) {
         const photoURL = e.target.result;
-        const data = {
+        const newRegistrationRef = database.ref('registrations').push();
+        newRegistrationRef.set({
             name,
             email,
             phone,
@@ -35,9 +40,7 @@ function submitForm() {
             gender,
             membership,
             photoURL
-        };
-        saveData(data);
-        appendRow(data);
+        });
     }
     reader.readAsDataURL(photo);
 
@@ -51,17 +54,18 @@ function submitForm() {
     document.getElementById('photo').value = '';
 }
 
-function saveData(data) {
-    let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
-    registrations.push(data);
-    localStorage.setItem('registrations', JSON.stringify(registrations));
-}
+database.ref('registrations').on('child_added', function(snapshot) {
+    const data = snapshot.val();
+    appendRow(data);
+});
 
-function loadTableData() {
-    let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
-    document.getElementById('registrationData').innerHTML = '';
-    registrations.forEach(data => appendRow(data));
-}
+document.getElementById('search').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        searchTable();
+    } else if (event.target.value === '') {
+        loadTableData();
+    }
+});
 
 function appendRow(data) {
     const table = document.getElementById('registrationData');
@@ -84,13 +88,25 @@ function searchTable() {
     const input = document.getElementById('search').value.toUpperCase();
     const table = document.getElementById('registrationTable');
     const tr = table.getElementsByTagName('tr');
-    let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
     
-    document.getElementById('registrationData').innerHTML = '';
-    
-    registrations.forEach(data => {
-        if (data.name.toUpperCase().indexOf(input) > -1) {
-            appendRow(data);
+    Array.from(tr).forEach(row => {
+        const td = row.getElementsByTagName('td')[0];
+        if (td) {
+            if (td.innerText.toUpperCase().indexOf(input) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         }
+    });
+}
+
+function loadTableData() {
+    document.getElementById('registrationData').innerHTML = '';
+    database.ref('registrations').once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            const data = childSnapshot.val();
+            appendRow(data);
+        });
     });
 }

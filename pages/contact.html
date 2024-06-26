@@ -3,65 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asolole Team</title>
-    <link rel="stylesheet"href ="../assets/css/contact.css"
+    <title>Form Pendaftaran Software House</title>
+    <link rel="stylesheet" href="../assets/css/contact.css">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/index-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/index-scripts.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Form Pendaftaran Software House</h2>
-        <label for="name">Nama:</label>
-        <input type="text" id="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-        
-        <label for="phone">No Telpon:</label>
-        <input type="tel" id="phone" required>
-        
-        <label for="address">Alamat:</label>
-        <input type="text" id="address" required>
-        
-        <label>Gender:</label>
-        <div class="gender-options">
-            <label><input type="radio" name="gender" value="Male" required> Male</label>
-            <label><input type="radio" name="gender" value="Female" required> Female</label>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+          <img
+            src="../assets/img/all-logo.png"
+            alt="logo"
+            style="width: 65px; height: auto"
+          />
+          <!-- <a class="navbar-brand" href="#page-top">Start Bootstrap</a> -->
+          <button
+            class="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        <label>Opsi Pendaftaran:</label>
-        <div class="membership-options">
-            <label><input type="radio" name="membership" value="VIP" required> VIP</label>
-            <label><input type="radio" name="membership" value="Biasa" required> Biasa</label>
-        </div>
-        
-        <label for="photo">Foto:</label>
-        <input type="file" id="photo" required>
-        
-        <button type="button" onclick="submitForm()">Daftar</button>
+      </nav>
+
+<div class="containerr">
+    <h2>Form Pendaftaran Software House</h2>
+    <label for="name">Nama:</label>
+    <input type="text" id="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    
+    <label for="phone">No Telpon:</label>
+    <input type="tel" id="phone" required>
+    
+    <label for="address">Alamat:</label>
+    <input type="text" id="address" required>
+    
+    <label>Gender:</label>
+    <div class="gender-options">
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female" required> Female</label>
     </div>
     
-    <div class="search-container">
-        <input type="text" class="search-box" id="search" placeholder="Search for names..">
+    <label>Opsi Pendaftaran:</label>
+    <div class="membership-options">
+        <label><input type="radio" name="membership" value="VIP" required> VIP</label>
+        <label><input type="radio" name="membership" value="Biasa" required> Biasa</label>
     </div>
     
-    <div class="table-container">
-        <h3>Berikut list</h3>
-        <table id="registrationTable">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>No Telpon</th>
-                    <th>Alamat</th>
-                    <th>Gender</th>
-                    <th>Opsi Pendaftaran</th>
-                    <th>Foto</th>
-                </tr>
-            </thead>
-            <tbody id="registrationData">
-                <!-- Data will be inserted here -->
-            </tbody>
-        </table>
-    </div>
-    <script src="../assets/js/contact.js"></script>
-</body>          
-</html>                     
+    <label for="photo">Foto:</label>
+    <input type="file" id="photo" required>
+    
+    <button type="button" onclick="submitForm()">Daftar</button>
+</div>
+
+<div class="search-container">
+    <input type="text" class="search-box" id="search" placeholder="Search for names..">
+</div>
+
+<div class="table-container">
+    <table id="registrationTable">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>No Telpon</th>
+                <th>Alamat</th>
+                <th>Gender</th>
+                <th>Opsi Pendaftaran</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody id="registrationData">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyCW4lK4Kbs8hgHyUubGfajywlXrYm2NBaM",
+  authDomain: "hudadatabase-6277d.firebaseapp.com",
+  databaseURL: "https://hudadatabase-6277d-default-rtdb.firebaseio.com",
+  projectId: "hudadatabase-6277d",
+  storageBucket: "hudadatabase-6277d.appspot.com",
+  messagingSenderId: "422933041959",
+  appId: "1:422933041959:web:66d26fd7f97563d189cf02",
+  measurementId: "G-YWG0WRG3EH"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const database = firebase.database();
+
+    function submitForm() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const gender = document.querySelector('input[name="gender"]:checked').value;
+        const membership = document.querySelector('input[name="membership"]:checked').value;
+        const photo = document.getElementById('photo').files[0];
+
+        if (!name || !email || !phone || !address || !gender || !membership || !photo) {
+            alert('Please fill out all fields');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const photoURL = e.target.result;
+            const newRegistrationRef = database.ref('registrations').push();
+            newRegistrationRef.set({
+                name,
+                email,
+                phone,
+                address,
+                gender,
+                membership,
+                photoURL
+            }, function(error) {
+                if (error) {
+                    console.error('Error writing new message to Firebase Database', error);
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Your registration was successful!',
+                    });
+                    // Clear the form after submission
+                    document.getElementById('name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('phone').value = '';
+                    document.getElementById('address').value = '';
+                    document.querySelectorAll('input[name="gender"]').forEach(input => input.checked = false);
+                    document.querySelectorAll('input[name="membership"]').forEach(input => input.checked = false);
+                    document.getElementById('photo').value = '';
+                }
+            });
+        };
+        reader.readAsDataURL(photo);
+    }
+
+    database.ref('registrations').on('child_added', function(snapshot) {
+        const data = snapshot.val();
+        appendRow(data);
+    });
+
+    document.getElementById('search').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            searchTable();
+        } else if (event.target.value === '') {
+            loadTableData();
+        }
+    });
+
+    function appendRow(data) {
+        const table = document.getElementById('registrationData');
+        const row = table.insertRow();
+        row.insertCell(0).innerText = data.name;
+        row.insertCell(1).innerText = data.email;
+        row.insertCell(2).innerText = data.phone;
+        row.insertCell(3).innerText = data.address;
+        row.insertCell(4).innerText = data.gender;
+        row.insertCell(5).innerText = data.membership;
+        const photoCell = row.insertCell(6);
+        const img = document.createElement('img');
+        img.src = data.photoURL;
+        img.width = 50;
+        img.height = 50;
+        photoCell.appendChild(img);
+    }
+
+    function searchTable() {
+        const input = document.getElementById('search').value.toUpperCase();
+        const table = document.getElementById('registrationTable');
+        const tr = table.getElementsByTagName('tr');
+        
+        Array.from(tr).forEach(row => {
+            const td = row.getElementsByTagName('td')[0];
+            if (td) {
+                if (td.innerText.toUpperCase().indexOf(input) > -1) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    function loadTableData() {
+        document.getElementById('registrationData').innerHTML = '';
+        database.ref('registrations').once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                const data = childSnapshot.val();
+                appendRow(data);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
