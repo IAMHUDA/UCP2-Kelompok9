@@ -53,3 +53,10 @@ button {
 button:hover {
     background-color: #218838;
 }
+.search-container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
