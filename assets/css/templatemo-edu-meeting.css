@@ -855,7 +855,7 @@ upcoming meetings
 */
 
 section.upcoming-meetings {
-  background-image: url(../images/meetings-bg.jpg);
+  background-image: url(../img/bg-masthead.jpg);
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -946,12 +946,7 @@ section.upcoming-meetings .categories .Category a {
   border-bottom-left-radius: 20px;
 }
 
-.meeting-item .down-content .date {
-  float: left;
-  text-align: center;
-  display: inline-block;
-  margin-right: 20px;
-}
+
 
 .meeting-item .down-content .date h6 {
   font-size: 13px;
@@ -1624,3 +1619,4 @@ responsive
   }
 
 }
+
