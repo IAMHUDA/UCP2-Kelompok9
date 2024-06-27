@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pendaftaran Software House</title>
-    <link rel="stylesheet" href="../assets/css/contact.css">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>about</title>
+
+    <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/index-styles.css">
+
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Additional CSS Files -->
+     <link rel="stylesheet" href="../assets/css/contact.css">
+
+    <link rel="stylesheet" href="../assets/css/templatemo-edu-meeting.css">
+
+    <link rel="stylesheet" href="../assets/css/index-styles.css">
     <script src="../assets/js/index-scripts.js"></script>
 </head>
 <body>
+
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
@@ -48,60 +70,140 @@
         </div>
       </nav>
 
-<div class="containerr">
-    <h2>Form Pendaftaran Software House</h2>
-    <label for="name">Nama:</label>
-    <input type="text" id="name" required>
     
-    <label for="email">Email:</label>
-    <input type="email" id="email" required>
-    
-    <label for="phone">No Telpon:</label>
-    <input type="tel" id="phone" required>
-    
-    <label for="address">Alamat:</label>
-    <input type="text" id="address" required>
-    
-    <label>Gender:</label>
-    <div class="gender-options">
-        <label><input type="radio" name="gender" value="Male" required> Male</label>
-        <label><input type="radio" name="gender" value="Female" required> Female</label>
-    </div>
-    
-    <label>Opsi Pendaftaran:</label>
-    <div class="membership-options">
-        <label><input type="radio" name="membership" value="VIP" required> VIP</label>
-        <label><input type="radio" name="membership" value="Biasa" required> Biasa</label>
-    </div>
-    
-    <label for="photo">Foto:</label>
-    <input type="file" id="photo" required>
-    
-    <button type="button" onclick="submitForm()">Daftar</button>
-</div>
+    <section class="upcoming-meetings" id="meetings">
+        <div class="container">
+        <div class="containerr">
+            <h2>Form Pendaftaran Software House</h2>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="phone">No Telpon:</label>
+            <input type="tel" id="phone" required>
+            
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" required>
+            
+            <label>Gender:</label>
+            <div class="gender-options">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female" required> Female</label>
+            </div>
+            
+            <label>Opsi Pendaftaran:</label>
+            <div class="membership-options">
+                <label><input type="radio" name="membership" value="VIP" required> VIP</label>
+                <label><input type="radio" name="membership" value="Biasa" required> Biasa</label>
+            </div>
+            
+            <label for="photo">Foto:</label>
+            <input type="file" id="photo" required>
+            
+            <button type="button" onclick="submitForm()">Daftar</button>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-box" id="search" placeholder="Search for names..">
+        </div>
+        
+        <div class="table-container">
+            <table id="registrationTable">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>No Telpon</th>
+                        <th>Alamat</th>
+                        <th>Gender</th>
+                        <th>Opsi Pendaftaran</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody id="registrationData">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
 
-<div class="search-container">
-    <input type="text" class="search-box" id="search" placeholder="Search for names..">
-</div>
+    </div>
+  </section>
 
-<div class="table-container">
-    <table id="registrationTable">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>No Telpon</th>
-                <th>Alamat</th>
-                <th>Gender</th>
-                <th>Opsi Pendaftaran</th>
-                <th>Foto</th>
-            </tr>
-        </thead>
-        <tbody id="registrationData">
-            <!-- Data will be inserted here -->
-        </tbody>
-    </table>
-</div>
+<section class="our-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Address</h2>
+              <h5 style="color: white;">Jl. kenangan manis, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55183</h5>
+              <br>
+            </div>
+            <div class="col-lg-12">
+                <a href="https://wa.me/08130110119123">
+                    <h4 style="color: white;">Whatsapp : 081342839823</h4>
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <a href="mailto:asolole@gmail.com">
+                    <h4 style="color: white;">Email : Asolole@gmail.com</h4>
+                </a>
+            </div>
+          </div>
+        </div> 
+        <div class="col-lg-6 align-self-center">
+          <div>
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7905.67176949966!2d110.31863577951104!3d-7.807192002487297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af9f39516e6f9%3A0x6dbcd1929f4f2871!2sKos%20Wisma%20Putih!5e0!3m2!1sid!2sid!4v1719510606752!5m2!1sid!2sid
+            " 
+            width="550" 
+            height="350" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../assets/img/all-logo.png" alt="Logo" />
+      </div>
+      <div class="footer-links">
+        <a href="#page-top">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:service@aselole.team.en" style="margin-top: 30px"
+          >service@aselole.team.en</a
+        >
+        <a href="https://wa.me/08130110119123" target="_blank"
+          >0813011011912</a
+        >
+        <div
+          class="footer-social"
+          style="display: flex; flex-direction: row; gap: 20px"
+        >
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>

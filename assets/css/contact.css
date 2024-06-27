@@ -1,18 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #333; /* Darker background color */
-    color: #f0f0f0; /* Light text color for contrast */
+    color: #000000; /* Light text color for contrast */
     margin: 0;
     padding: 20px;
 }
 
+
 .containerr, .table-container, .search-container {
     max-width: 600px;
     margin: auto;
-    margin-top: 90px;
     background: #444; /* Slightly lighter dark background */
     padding: 20px;
-    padding-top: 40px;
+    padding-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
     border-radius: 5px; /* Add border radius for smoother edges */
