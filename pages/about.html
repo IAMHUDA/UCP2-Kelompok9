@@ -21,6 +21,9 @@
     ></script>
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../assets/css/templatemo-edu-meeting.css">
@@ -61,7 +64,7 @@
                 <a class="nav-link" href="../pages/about.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/contact.html">Contact</a>
+                <a class="nav-link" href="./contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -163,7 +166,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8" onclick="showDetail('../assets/images/softwareojan.jpg', 'Pengembangan Software', 'Pengembangan segala jenis software yang mencakup berbagai aspek mulai dari analisis kebutuhan, desain, pengkodean, pengujian, hingga implementasi dan pemeliharaan. Kami memastikan bahwa setiap tahap pengembangan dilakukan dengan standar kualitas tinggi untuk memberikan solusi yang optimal bagi kebutuhan bisnis Anda.')">
           <div class="row">
             <div class="col-lg-6">
               <div class="meeting-item">
@@ -182,7 +185,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" onclick="showDetail('../assets/images/konsultasi.webp', 'Konsultasi Online', 'Konsultasi segala jenis software untuk membantu Anda dalam memahami kebutuhan teknologi dan memberikan solusi yang tepat. Konsultasi dapat dilakukan secara online maupun offline, sesuai dengan kenyamanan Anda. Tim kami siap memberikan panduan dan saran yang diperlukan untuk mendukung pengembangan teknologi di perusahaan Anda.')">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -199,7 +202,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" onclick="showDetail('../assets/images/workshop.jpg', 'Pelayanan Workshop', 'Pelayanan workshop yang menyeluruh mencakup berbagai topik terkait pengembangan teknologi, pengelolaan proyek, dan inovasi terkini. Workshop ini dirancang untuk memberikan pengetahuan praktis dan keterampilan yang dapat langsung diterapkan dalam pekerjaan sehari-hari. Tersedia dalam format online maupun offline.')">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -216,7 +219,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" onclick="showDetail('../assets/images/softwareojan.jpg', 'Pengembangan Software', 'Pengembangan segala jenis software yang mencakup berbagai aspek mulai dari analisis kebutuhan, desain, pengkodean, pengujian, hingga implementasi dan pemeliharaan. Kami memastikan bahwa setiap tahap pengembangan dilakukan dengan standar kualitas tinggi untuk memberikan solusi yang optimal bagi kebutuhan bisnis Anda.')">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -341,50 +344,24 @@
     <script src="../assets/js/slick-slider.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
-
-        var showSection = function showSection(section, isAnimate) {
-          var
-          direction = section.replace(/#/, ''),
-          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-          reqSectionPos = reqSection.offset().top - 0;
-
-          if (isAnimate) {
-            $('body, html').animate({
-              scrollTop: reqSectionPos },
-            800);
-          } else {
-            $('body, html').scrollTop(reqSectionPos);
-          }
-
-        };
-
-        var checkSection = function checkSection() {
-          $('.section').each(function () {
-            var
-            $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-            if (topEdge < wScroll && bottomEdge > wScroll) {
-              var
-              currentId = $this.data('section'),
-              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-              reqLink.closest('li').addClass('active').
-              siblings().removeClass('active');
-            }
-          });
-        };
-
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-          e.preventDefault();
-          showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function () {
-          checkSection();
-        });
+       function showDetail(imageSrc, title, description) {
+    Swal.fire({
+        title: title,
+        html: description,
+        imageUrl: imageSrc,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Pesan Sekarang',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Tambahkan logika untuk mengarahkan pengguna ke halaman pemesanan atau melakukan tindakan pemesanan di sini
+            window.location.href = './contact.html'; // Ganti URL dengan halaman pemesanan Anda
+        }
+    });
+}
     </script>
 </body>
 
